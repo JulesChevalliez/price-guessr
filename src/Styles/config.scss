@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Roboto;
+    src: local('Roboto'), url(../../Fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+} 
+@font-face {
+    font-family: RobotoBold;
+    src: local('RobotoBold'), url(../../Fonts/Roboto/Roboto-Black.ttf) format('truetype');
+}
+ 
+@mixin shadows {
+    box-shadow: 
+    0.3rem 0.3rem 0.5rem #c8d0e7, 
+    -0.3rem -0.3rem 0.7rem #FFFFFF,
+    inset 0 0 0 #c8d0e7,
+    inset 0 0 0 #FFFFFF;
+    border-radius: 15px;
+    transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+
+@mixin insert-shadow{
+    box-shadow: 
+    0 0 0 #c8d0e7, 
+    0 0 0 #FFFFFF,
+    inset 0.2rem 0.2rem 0.5rem #c8d0e7, 
+    inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+    border-radius: 15px;
+}
+
+@mixin center-height-width {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin font-gradient-blue{
+    background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+$main-bg-color: #e9f2ff;
+$primary-color: #5E53FA;
+$secondary-color: #39DB49;
+$gradient-bg: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);

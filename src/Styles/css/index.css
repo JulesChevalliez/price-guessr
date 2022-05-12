@@ -1,0 +1,675 @@
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto"), url(../../Fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: RobotoBold;
+  src: local("RobotoBold"), url(../../Fonts/Roboto/Roboto-Black.ttf) format("truetype");
+}
+/* HOMEPAGE */
+body {
+  background-color: #e9f2ff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body .homepage {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #e9f2ff;
+  transition: all 0.5s linear;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  left: -100vw;
+  overflow: hidden;
+}
+body .homepage::-webkit-scrollbar {
+  display: none;
+}
+body .homepage.game-started {
+  left: -200vw;
+}
+body .homepage.in-settings {
+  left: 0;
+}
+body .homepage.in-rules {
+  top: -100vh;
+}
+body .homepage .card-container {
+  min-width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+}
+body .homepage .card-container .in-game, body .homepage .card-container .pre-game, body .homepage .card-container .settings-container, body .homepage .card-container .rules-container {
+  transform: translateY(10vh);
+  min-width: 200px;
+  max-width: 500px;
+  min-height: 80%;
+  margin-bottom: 25px;
+  position: relative;
+  margin: auto;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+@media (max-width: 600px) {
+  body .homepage .card-container .in-game, body .homepage .card-container .pre-game, body .homepage .card-container .settings-container, body .homepage .card-container .rules-container {
+    max-width: 80vw;
+    transform: translateY(5vh);
+    min-height: calc(80vh - 50px);
+    max-height: 90vh;
+  }
+}
+body .homepage .rules-cell {
+  grid-column-start: 2;
+}
+body .homepage .pre-game .container {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+body .homepage .pre-game .container .logo {
+  width: 250px;
+  max-width: 70vw;
+}
+body .homepage .pre-game .container .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: auto;
+  margin-top: 25px;
+}
+body .homepage .pre-game .container .buttons .play, body .homepage .pre-game .container .buttons .rules, body .homepage .pre-game .container .buttons .settings {
+  font-family: RobotoBold, sans-serif;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  background-color: #e9f2ff;
+  margin-bottom: 25px;
+  padding: 12px 10px;
+  width: 100%;
+  text-transform: capitalize;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body .homepage .pre-game .container .buttons .play .text, body .homepage .pre-game .container .buttons .rules .text, body .homepage .pre-game .container .buttons .settings .text {
+  pointer-events: none;
+  background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transform: scale(1);
+  transition: transform 0.1s;
+}
+body .homepage .pre-game .container .buttons .play.clicked, body .homepage .pre-game .container .buttons .rules.clicked, body .homepage .pre-game .container .buttons .settings.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+}
+body .homepage .pre-game .container .buttons .play.clicked .text, body .homepage .pre-game .container .buttons .rules.clicked .text, body .homepage .pre-game .container .buttons .settings.clicked .text {
+  transform: scale(0.9);
+}
+body .homepage .in-game .top {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 15px;
+}
+body .homepage .in-game .top .logo {
+  width: 35%;
+}
+body .homepage .in-game .top .timer-back {
+  display: flex;
+  align-items: center;
+}
+body .homepage .in-game .top .timer-back .timer {
+  margin-left: 15px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #ffffff, inset -0.3rem -0.3rem 0.5rem white, inset 0.3rem 0.3rem 0.5rem #c8d0e7;
+  border-radius: 50%;
+  border: 1px solid #f2f3f7;
+  position: relative;
+}
+body .homepage .in-game .top .timer-back .timer .time {
+  position: absolute;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+body .homepage .in-game .top .timer-back .timer .time-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+body .homepage .in-game .top .timer-back .timer .time-bar .progress-bar {
+  stroke-dasharray: 251;
+  stroke-dashoffset: 50;
+  transform: rotate(-90deg) rotateX(180deg);
+}
+body .homepage .in-game .top .timer-back .timer .time-bar .progress-bar.active {
+  animation: offsettozero var(--timer) linear forwards;
+}
+body .homepage .in-game .top .timer-back .timer .time-bar .progress-bar.active.paused {
+  animation-play-state: paused;
+}
+@keyframes offsettozero {
+  to {
+    stroke-dashoffset: 251;
+  }
+}
+body .homepage .in-game .top .timer-back .get-back {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  padding: 10px;
+  cursor: pointer;
+}
+body .homepage .in-game .top .timer-back .get-back.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+}
+body .homepage .in-game .top .timer-back .get-back svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  pointer-events: none;
+}
+body .homepage .in-game .caroussel {
+  display: grid;
+}
+body .homepage .in-game .caroussel .previous, body .homepage .in-game .caroussel .next {
+  width: fit-content;
+  height: fit-content;
+  padding: 10px;
+  grid-row: 2;
+  cursor: pointer;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  margin: 15px auto;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+body .homepage .in-game .caroussel .previous.clicked, body .homepage .in-game .caroussel .next.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+}
+body .homepage .in-game .caroussel .previous svg, body .homepage .in-game .caroussel .next svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+  pointer-events: none;
+}
+body .homepage .in-game .caroussel .previous {
+  grid-column: 1;
+}
+body .homepage .in-game .caroussel .next {
+  grid-column: 2;
+}
+body .homepage .in-game .caroussel .next svg {
+  transform: rotate(180deg);
+}
+body .homepage .in-game .caroussel .viewport {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 80%;
+  height: 30vh;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+body .homepage .in-game .caroussel .viewport .container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: left 0.3s linear;
+}
+body .homepage .in-game .caroussel .viewport .container .image {
+  min-height: calc(100% - 20px);
+  min-width: calc(100% - 20px);
+  margin: 10px;
+}
+body .homepage .in-game .caroussel .viewport .container .image img {
+  border: solid #e9f2ff 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+body .homepage .in-game .caroussel .viewport .container .info-slide {
+  display: flex;
+  min-height: calc(100% - 20px);
+  min-width: calc(100% - 20px);
+  margin: 10px;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+body .homepage .in-game .caroussel .viewport .container .info-slide .title {
+  font-size: 1rem;
+  padding: 5px;
+}
+body .homepage .in-game .caroussel .viewport .container .info-slide .desc {
+  padding: 5px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+body .homepage .in-game .guess-toasts {
+  display: none;
+}
+body .homepage .in-game .guess-toasts.running {
+  display: block;
+}
+body .homepage .in-game .guess-toasts .guess-input {
+  display: flex;
+  justify-content: center;
+}
+body .homepage .in-game .guess-toasts .guess-input .input {
+  border: none !important;
+  background-color: #e9f2ff;
+  box-shadow: inset 2px 2px 5px #c8d0e7, inset -2px -2px 5px white;
+  height: 30px;
+  padding: 10px;
+  border-radius: 50px;
+  width: 150px;
+  -moz-appearance: textfield;
+}
+body .homepage .in-game .guess-toasts .guess-input .input:focus {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  border-radius: 50px;
+  outline: none;
+}
+body .homepage .in-game .guess-toasts .guess-input .input::-webkit-outer-spin-button, body .homepage .in-game .guess-toasts .guess-input .input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+body .homepage .in-game .guess-toasts .guess-input .guess {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: -50px;
+  background-color: #e9f2ff;
+  cursor: pointer;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+body .homepage .in-game .guess-toasts .guess-input .guess.clicked {
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+}
+body .homepage .in-game .guess-toasts .guess-input .guess svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+  transform: rotate(180deg);
+  pointer-events: none;
+}
+body .homepage .in-game .guess-toasts .guess-input .input:focus + .guess {
+  box-shadow: none;
+}
+body .homepage .in-game .guess-toasts .toasts {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  margin-top: 10px;
+  min-height: 120px;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+body .homepage .in-game .guess-toasts .toasts .toast {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 15px;
+  margin: 10px auto;
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  position: absolute;
+  top: 0;
+  border-radius: 15px;
+  transition: all 0.3s linear;
+}
+body .homepage .in-game .guess-toasts .toasts .toast .text {
+  margin-right: 10px;
+  font-family: RobotoBold, sans-serif;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+body .homepage .in-game .guess-toasts .toasts .toast .text.green {
+  color: #39DB49;
+}
+body .homepage .in-game .guess-toasts .toasts .toast .text.blue {
+  color: #5E53FA;
+}
+body .homepage .in-game .guess-toasts .toasts .toast svg {
+  display: block;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+body .homepage .in-game .guess-toasts .toasts .toast svg.blue {
+  transform: rotate(135deg);
+  width: 20px;
+  height: 20px;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.entrance {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+body .homepage .in-game .guess-toasts .toasts .toast.entrance .text, body .homepage .in-game .guess-toasts .toasts .toast.entrance svg {
+  opacity: 1;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.slide-down {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  transition: top 0.3s linear;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.slide-down.first {
+  top: 40px;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.slide-down.last {
+  top: 80px;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.slide-down .text, body .homepage .in-game .guess-toasts .toasts .toast.slide-down svg {
+  opacity: 1;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.stacked {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  transition: all 0.3s linear;
+}
+body .homepage .in-game .guess-toasts .toasts .toast.stacked .text, body .homepage .in-game .guess-toasts .toasts .toast.stacked svg {
+  opacity: 1;
+}
+body .homepage .in-game .guess-toasts .toasts .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(0deg, #e9f2ff, rgba(233, 242, 255, 0));
+  border-radius: 15px;
+}
+body .homepage .in-game .game-finished {
+  display: none;
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  max-width: 90%;
+  margin: 10px auto;
+}
+body .homepage .in-game .game-finished.won, body .homepage .in-game .game-finished.timesup {
+  display: block;
+}
+body .homepage .in-game .game-finished.won .title, body .homepage .in-game .game-finished.won .price, body .homepage .in-game .game-finished.won .nbr-guesses, body .homepage .in-game .game-finished.won .link, body .homepage .in-game .game-finished.won .replay {
+  font-family: RobotoBold, sans-serif;
+  background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+body .homepage .in-game .game-finished.timesup .title, body .homepage .in-game .game-finished.timesup .price, body .homepage .in-game .game-finished.timesup .nbr-guesses, body .homepage .in-game .game-finished.timesup .link, body .homepage .in-game .game-finished.timesup .replay {
+  font-family: RobotoBold, sans-serif;
+  background: linear-gradient(89.88deg, #FF1368 19.9%, #FF7880 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+body .homepage .in-game .game-finished.timesup .title path, body .homepage .in-game .game-finished.timesup .price path, body .homepage .in-game .game-finished.timesup .nbr-guesses path, body .homepage .in-game .game-finished.timesup .link path, body .homepage .in-game .game-finished.timesup .replay path {
+  fill: #FF1368;
+}
+body .homepage .in-game .game-finished .title {
+  font-size: 24px;
+  padding-top: 10px;
+}
+body .homepage .in-game .game-finished .price, body .homepage .in-game .game-finished .nbr-guesses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 0 0;
+}
+body .homepage .in-game .game-finished .price svg, body .homepage .in-game .game-finished .nbr-guesses svg {
+  margin-right: 5px;
+  width: 18px;
+}
+body .homepage .in-game .game-finished .nbr-guesses svg {
+  width: 22px;
+}
+body .homepage .in-game .game-finished .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+body .homepage .in-game .game-finished .bottom .link {
+  display: flex;
+  align-items: center;
+}
+body .homepage .in-game .game-finished .bottom .link svg {
+  width: 15px;
+  margin-right: 5px;
+}
+body .homepage .in-game .game-finished .bottom .link span {
+  max-width: 150px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  line-break: anywhere;
+  line-height: 25px;
+}
+body .homepage .in-game .game-finished .bottom .replay {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+}
+body .homepage .in-game .game-finished .bottom .replay.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+}
+body .homepage .settings-container .title {
+  font-size: 24px;
+  font-family: RobotoBold, sans-serif;
+  pointer-events: none;
+  background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body .homepage .settings-container .difficulty {
+  max-width: 300px;
+  margin: 20px auto 0;
+}
+body .homepage .settings-container .difficulty .name {
+  text-align: left;
+  margin-left: 15px;
+  background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: RobotoBold, sans-serif;
+}
+body .homepage .settings-container .difficulty .inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 15px;
+}
+body .homepage .settings-container .difficulty .inputs .input {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: RobotoBold, sans-serif;
+  cursor: pointer;
+}
+body .homepage .settings-container .difficulty .inputs .input.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+  border-radius: 10px;
+}
+body .homepage .settings-container .get-back {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  width: fit-content;
+  padding: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  cursor: pointer;
+}
+body .homepage .settings-container .get-back svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+body .homepage .settings-container .get-back.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+}
+body .homepage .rules-container .title {
+  font-size: 24px;
+  font-family: RobotoBold, sans-serif;
+  pointer-events: none;
+  background: -webkit-linear-gradient(89.88deg, #5E53FA 19.9%, #65DAFF 82.42%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body .homepage .rules-container .get-back {
+  box-shadow: 0.3rem 0.3rem 0.5rem #c8d0e7, -0.3rem -0.3rem 0.7rem #FFFFFF, inset 0 0 0 #c8d0e7, inset 0 0 0 #FFFFFF;
+  border-radius: 15px;
+  transition: box-shadow 0.1s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  width: fit-content;
+  padding: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  cursor: pointer;
+}
+body .homepage .rules-container .get-back svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+  transform: rotate(90deg);
+}
+body .homepage .rules-container .get-back.clicked {
+  box-shadow: 0 0 0 #c8d0e7, 0 0 0 #FFFFFF, inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #FFFFFF;
+  border-radius: 15px;
+}
+
+body .images-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+body .images-container .image {
+  position: relative;
+}
+body .images-container .image:hover {
+  cursor: pointer;
+}
+body .images-container .image:hover .overlay {
+  display: block;
+}
+body .images-container .image img {
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+body .images-container .image .overlay {
+  display: none;
+  background-color: rgba(64, 64, 64, 0.4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body .images-container .image .overlay::before {
+  content: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 59 59" style="enable-background:new 0 0 59 59;" xml:space="preserve"><g fill="white"><path d="M52.5,6H38.456c-0.11-1.25-0.495-3.358-1.813-4.711C35.809,0.434,34.751,0,33.499,0H23.5c-1.252,0-2.31,0.434-3.144,1.289   C19.038,2.642,18.653,4.75,18.543,6H6.5c-0.552,0-1,0.447-1,1s0.448,1,1,1h46c0.552,0,1-0.447,1-1S53.052,6,52.5,6z M21.792,2.681   C22.24,2.223,22.799,2,23.5,2h9.999c0.701,0,1.26,0.223,1.708,0.681c0.805,0.823,1.128,2.271,1.24,3.319H20.553   C20.665,4.952,20.988,3.504,21.792,2.681z"/><path d="M10.456,54.021C10.493,55.743,11.565,59,15.364,59h28.272c3.799,0,4.871-3.257,4.907-4.958L50.376,10H8.624L10.456,54.021z    M48.291,12l-1.747,41.979C46.538,54.288,46.4,57,43.636,57H15.364c-2.734,0-2.898-2.717-2.909-3.042L10.709,12H48.291z"/><path d="M17.5,54h24c0.552,0,1-0.447,1-1s-0.448-1-1-1h-24c-0.552,0-1,0.447-1,1S16.948,54,17.5,54z"/><path d="M17.5,49h24c0.552,0,1-0.447,1-1s-0.448-1-1-1h-24c-0.552,0-1,0.447-1,1S16.948,49,17.5,49z"/><path d="M17.5,44h24c0.552,0,1-0.447,1-1s-0.448-1-1-1h-24c-0.552,0-1,0.447-1,1S16.948,44,17.5,44z"/></g></svg>');
+  width: 20%;
+  height: fit-content;
+  display: block;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  margin: auto;
+}
